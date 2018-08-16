@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>//document.write("I love JavaScript！")</script>  
+		<script type="text/javascript" src="../../jQuery/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="../jquery.cookie.js"></script>
+	</head>
+	<body>
+		<h1>
+			Input Data
+		</h1>
+		<div id="">
+			 <textarea rows="70" cols="60" readonly="readonly" id="ResultTextarea">
+#------------------------------------------
+# Sample CAPTAIN1.0 input file to perform
+#
+#------------------------------------------
+</textarea><br/>
+		<button id="GenerateInputData">生成输入文件</button>
+		</div>
+		<script>	
+		
+		var IniConLabel="\n"
+		               +"#------------------------------------------"+"\n"
+		               +"> INICONDITION:"+"\n"
+                       +"#------------------------------------------"+"\n";
+        var param=$("#ResultTextarea").val()
+                    +IniConLabel
+                    +$.cookie("inicondtion")
+                    +">END"
+                    +"\n";
+                    
+		$("#ResultTextarea").val(param);
+		
+		var VolumeLabel="\n"
+		               +"#------------------------------------------"+"\n"
+		               +"> VOLUME:"+"\n"
+                       +"#------------------------------------------"+"\n";
+        param=$("#ResultTextarea").val()
+                    +VolumeLabel
+                    +$.cookie("volume")
+                    +">END"
+                    +"\n";
+          
+		$("#ResultTextarea").val(param);
+         console.log(param);
+		</script>
+		<script>
+//			$("#GenerateInputData").click(Function(){
+//				alert($("#ResultTextarea").val());
+//			})
+		</script>
+	</body>
+</html>

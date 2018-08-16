@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>-->
+		<script type="text/javascript" src="../../jQuery/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="../jquery.cookie.js"></script>
+		<script type="text/javascript" src="INICONDITON.js"></script>
+
+		<title>CAPTAIN-INICONDITION</title>
+
+		<style type="text/css">
+			/*input {
+				background-color: expression(this.readOnly==true?"#eee":"#fff");
+			}*/
+			
+			.beforClass {
+				background-color: gainsboro;
+				color: gray;
+			}
+			
+			.afterClass {
+				background-color: white;
+				color: blue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="vol">
+			<table border="0" cellspacing="" cellpadding="" rules="none" id="Volume">
+				<tr>
+					<th>Set Value</th>
+				</tr>
+				<tr>
+					<td><strong>VolNum</strong></td>
+					<td><input type="text" name="VolNum" value="" id="VolNum" size="6"></td>
+				</tr>
+				<tr>
+					<td><button type="submit" id="setValue">填写数据</button><br/></td>
+				</tr>
+
+				<tr>
+
+					<td>ID</td>
+					<td>
+						<select name="ID" id="ID">
+
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Description</td>
+					<td><input class="VolData" type="text" name="Description" value="" id="Description" size="6"></td>
+				</tr>
+				<tr>
+					<td>TotalPress</td>
+					<td><input class="VolData" type="text" name="TotalPress" value="" id="TotalPress" size="6"></td>
+				</tr>
+				<tr>
+					<td>VprTemp</td>
+					<td><input class="VolData" type="text" name="VprTemp" value="" id="VprTemp" size="6"></td>
+				</tr>
+				<tr>
+					<td>LidTemp</td>
+					<td><input class="VolData" type="text" name="LidTemp" value="" id="LidTemp" size="6"></td>
+				</tr>
+				<tr>
+					<td>StmVolFrac</td>
+					<td><input class="VolData" type="text" name="StmVolFrac" value="" id="StmVolFrac" size="6"></td>
+				</tr>
+				<tr>
+					<td>LidVolFrac</td>
+					<td><input class="VolData" type="text" name="LidVolFrac" value="" id="LidVolFrac" size="6"></td>
+				</tr>
+				<tr>
+					<td>GasCompNum</td>
+					<td><input class="VolData" type="text" name="GasCompNum" value="" id="GasCompNum" size="6"></td>
+				</tr>
+				<tr>
+					<td>GasCompLibID</td>
+					<td><input class="VolData" type="text" name="GasCompLibID" value="" id="GasCompLibID" size="6"></td>
+				</tr>
+				<tr>
+					<td>Volumes</td>
+					<td><input class="VolData" type="text" name="Volumes" value="" id="Volumes" size="6"></td>
+				</tr>
+				<tr>
+					<td>BottomElev</td>
+					<td><input class="VolData" type="text" name="BottomElev" value="" id="BottomElev" size="6"></td>
+				</tr>
+				<tr>
+					<td>Height</td>
+					<td><input class="VolData" type="text" name="Height" value="" id="Height" size="6"></td>
+				</tr>
+				<tr>
+					<td>HydDiam</td>
+					<td><input class="VolData" type="text" name="HydDiam" value="" id="HydDiam" size="6"></td>
+				</tr>
+				<tr>
+					<td>LVInterArea</td>
+					<td><input class="VolData" type="text" name="LVInterArea" value="" id="LVInterArea" size="6"></td>
+				</tr>
+				<tr>
+					<td>PoolHMTCoff</td>
+					<td><input class="VolData" type="text" name="PoolHMTCoff" value="" id="PoolHMTCoff" size="6"></td>
+				</tr>
+				<tr>
+					<td>SurWaveDampFctr</td>
+					<td><input class="VolData" type="text" name="SurWaveDampFctr" value="" id="SurWaveDampFctr" size="6"></td>
+				</tr>
+				<tr>
+					<td>PoolDetectOpt</td>
+					<td><input class="VolData" type="text" name="PoolDetectOpt" value="" id="PoolDetectOpt" size="6"></td>
+				</tr>
+				<tr>
+					<td>PoolPCorrect</td>
+					<td><input class="VolData" type="text" name="PoolPCorrect" value="" id="PoolPCorrect" size="6"></td>
+				</tr>
+				<tr>
+					<td>pToJuncID</td>
+					<td><input class="VolData" type="text" name="pToJuncID" value="" id="pToJuncID" size="6"></td>
+				</tr>
+				<tr>
+					<td>pToCondID</td>
+					<td><input class="VolData" type="text" name="pToCondID" value="" id="pToCondID" size="6"></td>
+				</tr>
+				<tr>
+					<td>pToHeaterID</td>
+					<td><input class="VolData" type="text" name="pToHeaterID" value="" id="pToHeaterID" size="6"></td>
+				</tr>
+				<tr>
+					<td>pToNeborVolID</td>
+					<td><input class="VolData" type="text" name="pToNeborVolID" value="" id="pToNeborVolID" size="6"></td>
+				</tr>
+			</table>
+		</div>
+
+		<button type="submit" id="VolumeGenerate">生成控制体数据</button><br/>
+		<textarea rows="10" cols="30" id="VolumeTextarea"></textarea><br/>
+		<button type="submit" id="submit_Volume">保存</button><br/>
+
+		<script type="text/javascript">
+			$("#ID").attr("disabled", true);
+			$(".VolData").addClass("beforClass");
+			$(".VolData").attr("readOnly", true);
+			$("#VolumeGenerate").attr("disabled", true);
+		</script>
+
+		<script type="text/javascript">
+			$('#VolumeGenerate').click(function(e) {
+				var indata = "@" + $("#ID").val() + '\n';
+				$("input").each(function() {
+					indata += $(this).attr("name") + ":" + $(this).val() + '\n';
+				})
+				$("#VolumeTextarea").val(indata);
+			})
+		</script>
+
+		<script type="text/javascript">
+			$("#setValue").click(function(e) {
+				if($("#VolNum").val() == "") {
+					alert("请填写控制体数！")
+				} else {
+					var ival = parseInt($("#VolNum").val())
+					if(isNaN(ival)) {
+						alert($("#VolNum").val() + "不是数字");
+					} else {
+						$("#VolNum").addClass("beforClass");
+						$("#VolNum").attr("readOnly", true);
+						$(this).attr("disabled", true);
+
+						var totNum = $("#VolNum").val(); //保证是数字
+						var i = 0
+						for(i; i < totNum; i++) {
+							j = i + 1
+							console.log(j);
+							$("#ID").append("<option value =" + j + ">" + j + "</option>")
+						}
+
+						$(".VolData").addClass("afterClass");
+						$("#ID").attr("disabled", false);
+						$(".VolData").attr("readOnly", false);
+						$("#VolumeGenerate").attr("disabled", false);
+					}
+				}
+			})
+		</script>
+		
+		<script type="text/javascript">
+			$("#ID").change(function() {	
+				if ($("#ID").val()==1) {
+
+				}
+				$(".VolData").val("");
+			})
+		</script>
+		
+		<script type="text/javascript">
+			$('#submit_Volume').click(function(e) {　
+				$.cookie("volume", $("#VolumeTextarea").val());
+				//$.cookie('data', $("#IniCondTextarea").val(), { expires: 7, path: 'C:\Users\1995\Desktop\TEST\HBuilder-test\CAPTAIN1.0\CAPTAIN1.0\save\' });
+			})
+		</script>
+
+
+	</body>
+
+</html>

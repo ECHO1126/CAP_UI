@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--script src="https://www.imooc.com/static/lib/jquery/1.9.1/jquery.js"></script>-->
+		<script type="text/javascript" src="../../jQuery/jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="../jquery.cookie.js"></script>
+		<script type="text/javascript" src="INICONDITON.js"></script>
+		
+		<title>CAPTAIN-INICONDITION</title>
+	</head>
+
+	<body>
+		<table border="0" cellspacing="" cellpadding="" rules="none" id="IniCondTable">
+			<tr class="IniCondTr">
+				<th>Set Value</th>
+			</tr>
+			<tr>
+				<td>HasVapor </td>
+				<td>
+					<select id="HasVpr">
+						<option value="True">True</option>
+						<option value="False">False</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>HasDrop </td>
+				<td>
+					<select id="HasDrp">
+						<option value="True">True</option>
+						<option value="False">False</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>HasLiquid </td>
+				<td>
+					<select id="HasLid">
+						<option value="True">True</option>
+						<option value="False">False</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>DelTime</td>
+				<td><input type="text" name="DelTime" value="1" id="DelTime"></td>				
+			</tr>
+			<tr>
+				<td>TotStep</td>
+				<td><input type="text" name="TotStep" value="1" id="TolStep"></td>				
+			</tr>
+		</table>
+        <button type="submit" id="IniCondGenerate" >生成</button><br/>      
+        <textarea rows="10" cols="30" id="IniCondTextarea" ></textarea><br/>
+        <button type="submit" id="submit_inicondtion">保存</button><br/>
+
+
+	 <script type="text/javascript">
+        $('#IniCondGenerate').click(function(e) {
+        	
+            var indata="HasVpr:"+$("#HasVpr").val()+'\n';
+            indata+="HasDrp:"+$("#HasDrp").val()+'\n';
+            indata+="HasLid:"+$("#HasLid").val()+'\n';
+            indata+="DelTime:"+$("#DelTime").val()+'\n';
+            indata+="TolStep:"+$("#TolStep").val()+'\n';
+            $("#IniCondTextarea").val(indata);
+        })
+       </script>
+        
+       
+      <script type="text/javascript">
+      	
+        $('#submit_inicondtion').click(function(e){
+            　      $.cookie("inicondtion",$("#IniCondTextarea").val()); 
+//         	$.cookie('data', $("#IniCondTextarea").val(), { expires: 7, path: 'C:\Users\1995\Desktop\TEST\HBuilder-test\CAPTAIN1.0\CAPTAIN1.0\save\' });
+        })
+       </script>
+       
+       <script>
+       
+       </script>
+	</body>
+</html>
